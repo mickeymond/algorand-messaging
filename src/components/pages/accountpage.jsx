@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Redirect } from 'react-router-dom';
 import AccountComponent from "../stateful/accountcomponent";
 
 /**
@@ -20,7 +21,7 @@ class AccountPage extends React.Component {
     };
   }
   changeAccount = account => {
-    console.log(account.address);
+    // console.log(account.address);
     localStorage.setItem("address", account.address);
     localStorage.setItem("mnemonic", account.mnemonic);
     this.setState({
@@ -30,6 +31,10 @@ class AccountPage extends React.Component {
     });
   };
   render() {
+    if (!this.state.address) {
+      return <Redirect to="/create" />;
+    }
+
     return (
       <AccountComponent
         address={this.state.address}

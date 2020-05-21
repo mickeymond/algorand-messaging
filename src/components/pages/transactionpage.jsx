@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Redirect } from 'react-router-dom';
 import TransactionComponent from "../stateful/transactioncomponent";
 import TransactionOfflineComponent from "../stateful/transactionofflinecomponent";
 import PredictedRoundRangeComponent from "../stateful/predictedroundrangecomponent";
@@ -9,6 +10,11 @@ import PredictedRoundRangeComponent from "../stateful/predictedroundrangecompone
  * @author [Mitrasish Mukherjee](https://github.com/mmitrasish)
  */
 const TransactionPage = () => {
+  const address = localStorage.getItem("address");
+  if (!address) {
+    return <Redirect to="/create" />;
+  }
+
   return (
     <div className="container-fluid row">
       <div className="col-md-6 d-flex justify-content-center">

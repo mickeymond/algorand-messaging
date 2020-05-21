@@ -7,7 +7,7 @@ const Header = props => {
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container">
           <Link className="navbar-brand" to="/">
-            Algorand React
+            Algorand Messaging
           </Link>
           <button
             className="navbar-toggler"

@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Redirect } from 'react-router-dom';
 import MultisigTransactionComponent from "../stateful/multisigtransactioncomponent";
 
 /**
@@ -7,6 +8,11 @@ import MultisigTransactionComponent from "../stateful/multisigtransactioncompone
  * @author [Mitrasish Mukherjee](https://github.com/mmitrasish)
  */
 const MultisigTransactionPage = () => {
+  const address = localStorage.getItem("address");
+  if (!address) {
+    return <Redirect to="/create" />;
+  }
+
   return (
     <div className="container-fluid row">
       <div className="col-md-12 d-flex justify-content-center">
