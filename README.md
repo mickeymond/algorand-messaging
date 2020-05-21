@@ -1,8 +1,11 @@
-# Algorand React
+# Algorand Messaginng
+
+**Algorand Messaginng** uses **Algorand React** starter code
+Thanks to https://github.com/mmitrasish
 
 <img src="https://raw.githubusercontent.com/mmitrasish/algorand-sdk-react-component/master/src/assets/images/algorandicon.webp" width="100" height="100">
 
-**Algorand React** is an react application that can communicate with Algorand blockchain (https://www.algorand.com/) using Algorand JS SDK for creating and restoring account in algorand blockchain and also to create, sign and send both online and offline transactions on algorand blockchain. It contain a set of reusuable component which is like a wrapper to Algorand JS SDK that can be used by developers to create application on Algorand blockchain. 
+**Algorand React** is an react application that can communicate with Algorand blockchain (https://www.algorand.com/) using Algorand JS SDK for creating and restoring account in algorand blockchain and also to create, sign and send both online and offline transactions on algorand blockchain. It contain a set of reusuable component which is like a wrapper to Algorand JS SDK that can be used by developers to create application on Algorand blockchain.
 
 ## Demo Link
 
@@ -70,12 +73,12 @@ changeAccount = account => {
     console.log(account.address);
 };
 render(){
-  return(<AccountComponent address={"Your address"} mnemonic={"Your mnemonic"} 
+  return(<AccountComponent address={"Your address"} mnemonic={"Your mnemonic"}
   accountList={[list of accounts]} changeAccount={this.changeAccount} />);
 }
 ```
 
-This will give a UI like this with both account details and recent transaction components: 
+This will give a UI like this with both account details and recent transaction components:
 
 ![Account Component](https://github.com/mmitrasish/algorand-sdk-react-component/blob/master/src/assets/images/screenshots/Screenshot5.png)
 
@@ -119,7 +122,7 @@ render(){
 }
 ```
 
-The transaction component will give a UI like this with both online and offline transaction components: 
+The transaction component will give a UI like this with both online and offline transaction components:
 
 ![Account Component](https://github.com/mmitrasish/algorand-sdk-react-component/blob/master/src/assets/images/screenshots/Screenshot2.png)
 
@@ -133,7 +136,7 @@ render(){
 }
 ```
 
-The multisig transaction component will give a UI like this: 
+The multisig transaction component will give a UI like this:
 
 ![Account Component](https://github.com/mmitrasish/algorand-sdk-react-component/blob/master/src/assets/images/screenshots/Screenshot6.png)
 
