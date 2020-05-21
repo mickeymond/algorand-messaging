@@ -1,6 +1,6 @@
-# Algorand Messaginng
+# Algorand Messaging
 
-**Algorand Messaginng** uses **Algorand React** starter code
+**Algorand Messaging** uses **Algorand React** starter code
 Thanks to https://github.com/mmitrasish
 
 <img src="https://raw.githubusercontent.com/mmitrasish/algorand-sdk-react-component/master/src/assets/images/algorandicon.webp" width="100" height="100">
