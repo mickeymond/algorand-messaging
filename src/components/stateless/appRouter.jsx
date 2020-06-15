@@ -6,6 +6,7 @@ import TransactionPage from "../pages/transactionpage";
 import RestoreAccountPage from "../pages/restoreaccountcomponent";
 import AccountPage from "../pages/accountpage";
 import MultisigTransactionPage from "../pages/multisigtransactionpage";
+import MessagingPage from "../pages/messagingpage";
 
 const AppRouter = () => {
   return (
@@ -16,6 +17,7 @@ const AppRouter = () => {
         <Route path="/account" component={AccountPage} />
         <Route path="/transaction" component={TransactionPage} />
         <Route path="/multisig" component={MultisigTransactionPage} />
+        <Route path="/messaging" component={MessagingPage} />
         <Route
           exact
           path="/"

@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "./components/stateless/headercomponent";
+import './App.css';
 
 function App(props) {
   return (

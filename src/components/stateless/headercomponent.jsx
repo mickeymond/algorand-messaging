@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 
-const Header = props => {
+const Header = () => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -35,6 +35,11 @@ const Header = props => {
               <li className="nav-item">
                 <Link className="nav-link" to="/multisig">
                   Multisig Transaction
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/messaging">
+                  Messaging
                 </Link>
               </li>
             </ul>
