@@ -23,6 +23,7 @@ class MessagingPage extends React.Component {
       accountList: localStorage.getItem("accountList"),
       transactions: [],
       messages: [],
+      isNewMessage: true,
       to: '',
       text: ''
     };
@@ -64,6 +65,7 @@ class MessagingPage extends React.Component {
       // sending the transaction
       AlgorandClient.sendRawTransaction(signedTxn.blob)
           .then(tx => {
+            this.setState({ to: '', text: '' });
             console.log(tx);
             alert('Message Sent');
           })
@@ -73,6 +75,7 @@ class MessagingPage extends React.Component {
           });
     } catch (e) {
       console.log(e);
+      alert(e.toString());
     }
   };
 
@@ -85,6 +88,11 @@ class MessagingPage extends React.Component {
       <div className="container mt-5">
         <div className="row mb-5">
           <div className="col-4">
+            <button
+              className="btn btn-primary btn-block mb-3"
+              type="button"
+              onClick={() => this.setState({ isNewMessage: true })}
+            >Send New Message</button>
             <ul className="list-group">
               {
                 this.state.transactions.map((chats, index) => (
@@ -93,7 +101,8 @@ class MessagingPage extends React.Component {
                     onClick={() => {
                       this.setState({
                         messages: this.state.transactions[index],
-                        to: chats[0].payment.to
+                        to: chats[0].payment.to,
+                        isNewMessage: false
                       });
                     }}
                     className="list-group-item d-flex justify-content-between align-items-center clickable"
@@ -118,7 +127,7 @@ class MessagingPage extends React.Component {
         </div>
         <div className="row mb-5" />
         {
-          this.state.to ?
+          !this.state.isNewMessage ?
             <div className="input-group mb-3 message-box">
               <input
                 type="text"
@@ -135,11 +144,35 @@ class MessagingPage extends React.Component {
                   type="button"
                   disabled={!this.state.to || !this.state.text}
                   onClick={() => this.sendMessage()}
-                >
-                  Send
-                </button>
+                >Send</button>
               </div>
-            </div> : ''
+            </div> :
+            <div className="mb-3 message-box">
+              <input
+                type="text"
+                className="form-control mb-3"
+                placeholder="Enter Recipient Address..."
+                onChange={event => {
+                  // console.log(event.target.value);
+                  this.setState({ to: event.target.value });
+                }}
+              />
+              <input
+                type="text"
+                className="form-control mb-3"
+                placeholder="Enter Message Here..."
+                onChange={event => {
+                  // console.log(event.target.value);
+                  this.setState({ text: event.target.value });
+                }}
+              />
+              <button
+                className="btn btn-primary btn-block"
+                type="button"
+                disabled={!this.state.to || !this.state.text}
+                onClick={() => this.sendMessage()}
+              >Send</button>
+            </div>
         }
       </div>
     );
